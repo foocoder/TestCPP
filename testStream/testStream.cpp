@@ -9,13 +9,27 @@
 // ---- Program Info End  ----
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <cstring>
 #include <unistd.h>
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-    cout<<'a';
-    sleep(1);
+    ofstream outfile("out");
+    string line;
+    if(!outfile){
+        cerr<<"Unable to open file: out"<<endl;
+        return -1;
+    }
+    outfile<<"Test"<<endl;
+    getline(cin,line);
+    istringstream s(line);
+    int a;
+    while(s>>a)
+        outfile<<a;
+    outfile.close();
     return 0;
 }
