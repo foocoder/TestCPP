@@ -25,11 +25,12 @@ int main(int argc, char *argv[])
         return -1;
     }
     outfile<<"Test"<<endl;
-    getline(cin,line);
-    istringstream s(line);
-    int a;
-    while(s>>a)
-        outfile<<a;
+    while(getline(cin,line)){
+        istringstream s(line);
+        int a;
+        while(s>>a)
+            outfile<<a<<" ";
+    }
     outfile.close();
     return 0;
 }
