@@ -49,6 +49,11 @@ struct S4{//32
     char b;
     struct S1 s;
 };
+struct S4_Packed{//32
+    char a;
+    char b;
+    struct S1 s;
+}__attribute__((packed));
 struct S5{//2
     char a:3;
     char b:4;
@@ -116,10 +121,12 @@ int main(int argc, char *argv[])
     cout<<"sizeof(S2): "<<sizeof(S2)<<endl;
     cout<<"sizeof(S3): "<<sizeof(S3)<<endl;
     cout<<"sizeof(S4): "<<sizeof(S4)<<endl;
+    cout<<"sizeof(S4_Packed): "<<sizeof(S4_Packed)<<endl;
     cout<<"sizeof(S5): "<<sizeof(S5)<<endl;
     cout<<"sizeof(S6): "<<sizeof(S6)<<endl;
     cout<<"sizeof(S7): "<<sizeof(S7)<<endl;
     cout<<"sizeof(S8): "<<sizeof(S8)<<endl;
+    //cout<<"sizeof(no_packs): "<<sizeof(no_packs)<<endl;
 
     //Reference
     char & refToChar = variableChar;
