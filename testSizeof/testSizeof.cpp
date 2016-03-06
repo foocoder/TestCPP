@@ -70,6 +70,10 @@ struct S7{//0
 struct S8{//1
 
 };
+struct S9{//16
+    char c;
+    char &a=c;
+};
 
 //Test 0 Length Array
 struct SS1{//16
@@ -132,6 +136,7 @@ int main(int argc, char *argv[])
     char & refToChar = variableChar;
 
     cout<<"sizeof(refToChar): "<<sizeof(refToChar)<<"--"<<static_cast<const void*>(&refToChar)<<endl;
+    cout<<"sizeof(S9): "<<sizeof(S9)<<endl;
     refFoo(variableChar);
 
     //0 Length Array;
@@ -144,9 +149,16 @@ int main(int argc, char *argv[])
     var1 = new struct SS1();
     var1->length = 3;
     var1->ptr = new char[3];
-    var1->ptr = "Hi";
+    var1->ptr[0] = 'H';
+    var1->ptr[1] = 'i';
+    var1->ptr[2] = '\0';
     cout<<"Var1->ptr: "<<var1->ptr<<endl;
     cout<<"Var1 address: "<<var1<<" var1+1 address: "<<var1+1<<" var1->length address: "<<&(var1->length)<<" var1->ptr address: "<<static_cast<const void*>(var1->ptr)<<" var1->ptr+1 address: "<<static_cast<const void*>(var1->ptr+1)<<endl;
+    delete [] var1->ptr;
+    var1->ptr = NULL;
+    delete var1;
+    var1 = NULL;
+
     var2 = (struct SS2 *) malloc(sizeof(SS2)+3);
     var2->length = 3;
     var2->arr[0] = 'H';
@@ -154,6 +166,8 @@ int main(int argc, char *argv[])
     var2->arr[2] = '\0';
     cout<<"Var2->arr: "<<var2->arr<<endl;
     cout<<"Var2 address: "<<var2<<" var2+1 address: "<<var2+1<<" var2->length address: "<<&(var2->length)<<" var2->arr address: "<<static_cast<const void*>(var2->arr)<<" var2->arr+1 address: "<<static_cast<const void*>(var2->arr+1)<<endl;
+
+    free(var2);
 
     //Run-time Featur(After C99)
     int n = 5;
