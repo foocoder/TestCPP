@@ -9,6 +9,9 @@
 // ---- Program Info End  ----
 
 #include <iostream>
+extern "C"{
+#include <stdlib.h>
+}
 
 using namespace std;
 
@@ -56,8 +59,21 @@ struct S6{//8
     int b:31;
     char c:1;
 };
-struct S7{//1
-    char a;
+struct S7{//0
+    char a[0];//0 Length Array
+};
+struct S8{//1
+
+};
+
+//Test 0 Length Array
+struct SS1{//16
+    int length;
+    char *ptr;
+};
+struct SS2{//4
+    int length;
+    char arr[0];
 };
 
 int main(int argc, char *argv[])
@@ -103,12 +119,39 @@ int main(int argc, char *argv[])
     cout<<"sizeof(S5): "<<sizeof(S5)<<endl;
     cout<<"sizeof(S6): "<<sizeof(S6)<<endl;
     cout<<"sizeof(S7): "<<sizeof(S7)<<endl;
+    cout<<"sizeof(S8): "<<sizeof(S8)<<endl;
 
     //Reference
     char & refToChar = variableChar;
 
     cout<<"sizeof(refToChar): "<<sizeof(refToChar)<<"--"<<static_cast<const void*>(&refToChar)<<endl;
     refFoo(variableChar);
+
+    //0 Length Array;
+    char arrChar [0];
+    struct SS1 *var1;
+    struct SS2 *var2;
+    cout<<"sizeof(arrChar): "<<sizeof(arrChar)<<endl;
+    cout<<"sizeof(SS1): "<<sizeof(SS1)<<endl;
+    cout<<"sizeof(SS2): "<<sizeof(SS2)<<endl;
+    var1 = new struct SS1();
+    var1->length = 3;
+    var1->ptr = new char[3];
+    var1->ptr = "Hi";
+    cout<<"Var1->ptr: "<<var1->ptr<<endl;
+    cout<<"Var1 address: "<<var1<<" var1+1 address: "<<var1+1<<" var1->length address: "<<&(var1->length)<<" var1->ptr address: "<<static_cast<const void*>(var1->ptr)<<" var1->ptr+1 address: "<<static_cast<const void*>(var1->ptr+1)<<endl;
+    var2 = (struct SS2 *) malloc(sizeof(SS2)+3);
+    var2->length = 3;
+    var2->arr[0] = 'H';
+    var2->arr[1] = 'i';
+    var2->arr[2] = '\0';
+    cout<<"Var2->arr: "<<var2->arr<<endl;
+    cout<<"Var2 address: "<<var2<<" var2+1 address: "<<var2+1<<" var2->length address: "<<&(var2->length)<<" var2->arr address: "<<static_cast<const void*>(var2->arr)<<" var2->arr+1 address: "<<static_cast<const void*>(var2->arr+1)<<endl;
+
+    //Run-time Featur(After C99)
+    int n = 5;
+    char arrDyChar[n];
+    cout<<"sizeof(arrDyChar[n]): "<<sizeof(arrDyChar)<<endl;
 
     return 0;
 }
