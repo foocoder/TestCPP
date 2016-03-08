@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
         return -1;
     }
     outfile<<"Test"<<endl;
-    while(getline(cin,line)){
+    while(!getline(cin,line).eof()){
         istringstream s(line);
         int a;
         while(s>>a)
