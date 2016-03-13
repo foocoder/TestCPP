@@ -31,6 +31,9 @@ int main(int argc, char *argv[])
         while(s>>a)
             outfile<<a<<" ";
     }
+    outfile<<endl;
+    outfile<<"1 1";
+    outfile<<"\nend";
     outfile.close();
     return 0;
 }
