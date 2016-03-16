@@ -89,15 +89,15 @@ int main(int argc, char *argv[])
 {
     //Three Type of sizeof
     char variableChar;
-    cout<<"sizeof(char): "<<sizeof(char)<<endl;
-    cout<<"sizeof(variableChar): "<<sizeof(variableChar)<<"--"<<static_cast<const void*>(&variableChar)<<endl;
-    cout<<"sizeof variableChar: "<<sizeof variableChar <<endl;
+    cout<<"sizeof(char): "<<sizeof(char)<<endl; // 1
+    cout<<"sizeof(variableChar): "<<sizeof(variableChar)<<"--"<<static_cast<const void*>(&variableChar)<<endl;//1
+    cout<<"sizeof variableChar: "<<sizeof variableChar <<endl;//1
     //cout<<"sizeof Char: "<<sizeof char <<endl; // Cant sizeof type_name;
 
     //Function sizeof
-    cout<<"sizeof(intFoo()): "<<sizeof(intFoo())<<endl;
-    cout<<"sizeof(ptrIntFoo()): "<<sizeof(ptrIntFoo())<<endl;
-    cout<<"sizeof(*ptrIntFoo()): "<<sizeof(*ptrIntFoo())<<endl;
+    cout<<"sizeof(intFoo()): "<<sizeof(intFoo())<<endl; // 4
+    cout<<"sizeof(ptrIntFoo()): "<<sizeof(ptrIntFoo())<<endl; //8
+    cout<<"sizeof(*ptrIntFoo()): "<<sizeof(*ptrIntFoo())<<endl; //4
     //cout<<"sizeof(intFoo)"<<sizeof(intFoo)<<endl; // Cant sizeof(function) Type
     //cout<<"sizeof(voidFoo())"<<sizeof(voidFoo())<<endl; // Cant sizeof(void) Type
 
@@ -107,16 +107,16 @@ int main(int argc, char *argv[])
     char arrVariableChar[3];
     char * dyPtrVariableChar = new char[10];
 
-    cout<<"sizeof(ptrVariableVoid): "<<sizeof(ptrVariableVoid)<<endl;
+    cout<<"sizeof(ptrVariableVoid): "<<sizeof(ptrVariableVoid)<<endl; //8
     //cout<<"sizeof(*ptrVariableVoid): "<<sizeof(*ptrVariableVoid)<<endl; // error: Type of (* ptr) is Void;
-    cout<<"sizeof(ptrVariableChar): "<<sizeof(ptrVariableChar)<<endl;
-    cout<<"sizeof(*ptrVariableChar): "<<sizeof(*ptrVariableChar)<<endl;
-    cout<<"sizeof(arrVariableChar): "<<sizeof(arrVariableChar)<<endl;
-    cout<<"sizeof(*arrVariableChar): "<<sizeof(*arrVariableChar)<<endl;
-    cout<<"sizeof(dyPtrVariableChar): "<<sizeof(dyPtrVariableChar)<<endl;
-    cout<<"sizeof(*dyPtrVariableChar): "<<sizeof(*dyPtrVariableChar)<<endl;
-    cout<<"sizeof(*dyPtrVariableChar+1): "<<sizeof(*dyPtrVariableChar+1)<<endl;
-    cout<<"sizeof(*(dyPtrVariableChar+1)): "<<sizeof(*(dyPtrVariableChar+1))<<endl;
+    cout<<"sizeof(ptrVariableChar): "<<sizeof(ptrVariableChar)<<endl; //8
+    cout<<"sizeof(*ptrVariableChar): "<<sizeof(*ptrVariableChar)<<endl; //1
+    cout<<"sizeof(arrVariableChar): "<<sizeof(arrVariableChar)<<endl; //3
+    cout<<"sizeof(*arrVariableChar): "<<sizeof(*arrVariableChar)<<endl; //?
+    cout<<"sizeof(dyPtrVariableChar): "<<sizeof(dyPtrVariableChar)<<endl; //8
+    cout<<"sizeof(*dyPtrVariableChar): "<<sizeof(*dyPtrVariableChar)<<endl; //?
+    cout<<"sizeof(*dyPtrVariableChar+1): "<<sizeof(*dyPtrVariableChar+1)<<endl; //1
+    cout<<"sizeof(*(dyPtrVariableChar+1)): "<<sizeof(*(dyPtrVariableChar+1))<<endl; //1
 
     delete dyPtrVariableChar;
 
@@ -135,8 +135,8 @@ int main(int argc, char *argv[])
     //Reference
     char & refToChar = variableChar;
 
-    cout<<"sizeof(refToChar): "<<sizeof(refToChar)<<"--"<<static_cast<const void*>(&refToChar)<<endl;
-    cout<<"sizeof(S9): "<<sizeof(S9)<<endl;
+    cout<<"sizeof(refToChar): "<<sizeof(refToChar)<<"--"<<static_cast<const void*>(&refToChar)<<endl; //1
+    cout<<"sizeof(S9): "<<sizeof(S9)<<endl; // 8
     refFoo(variableChar);
 
     //0 Length Array;
