@@ -4,12 +4,8 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    int num = 0x1234;
-    int pos = 0;
-    __asm__(
-        bsf eax,num;
-        mov pos,eax;
-    );
-    cout<<pos<<endl;
+    int ia = 1;
+    int ib = ia++;
+    int ic = ++ia;
     return 0;
 }
