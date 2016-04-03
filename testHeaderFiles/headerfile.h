@@ -15,7 +15,7 @@ class Based{
         Based();
     private:
         int _val;
-};
+} ;
 
-static int nonConstInt = 1;
+static int nonConstInt;
 #endif

@@ -12,9 +12,11 @@
 #include "headerfile.h"
 using namespace std;
 
+int a = 8;
 int main(int argc, char *argv[])
 {
     Based A;
     cout<<"Main:"<<nonConstInt<<endl;
+    cout<<"Main a:"<<a<<endl;
     return 0;
 }

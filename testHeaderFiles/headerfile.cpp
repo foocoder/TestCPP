@@ -11,6 +11,9 @@
 #include "headerfile.h"
 #include <iostream>
 
-inline Based::Based():_val(0){
-    std::cout<<"Based:"<<nonConstInt++<<std::endl;
+static int a ;
+Based::Based():_val(0){
+    std::cout<<"Based:"<<nonConstInt<<std::endl;
+    std::cout<<"Based A:"<<a<<std::endl;
+    nonConstInt = 1;
 }
