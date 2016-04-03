@@ -12,5 +12,5 @@
 #include <iostream>
 
 inline Based::Based():_val(0){
-    std::cout<<"Based:"<<nonConstInt<<std::endl;
+    std::cout<<"Based:"<<nonConstInt++<<std::endl;
 }

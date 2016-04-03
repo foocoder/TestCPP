@@ -14,6 +14,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+    Based A;
     cout<<"Main:"<<nonConstInt<<endl;
     return 0;
 }

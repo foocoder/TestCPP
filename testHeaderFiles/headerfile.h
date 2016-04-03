@@ -17,5 +17,5 @@ class Based{
         int _val;
 };
 
-static const int nonConstInt = 1;
+static int nonConstInt = 1;
 #endif
