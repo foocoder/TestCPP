@@ -12,7 +12,7 @@
 #include "headerfile.h"
 using namespace std;
 
-int a;
+static int a;
 void swap(int &a, int &b){
 }
 int main(int argc, char *argv[])

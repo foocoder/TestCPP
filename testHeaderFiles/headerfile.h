@@ -15,7 +15,7 @@ class Based{
         Based();
     private:
         int _val;
-};
+} basea;
 
 static void swap(int &a, int &b);
 
