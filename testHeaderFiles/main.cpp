@@ -12,10 +12,15 @@
 #include "headerfile.h"
 using namespace std;
 
-int a = 8;
+int a;
+void swap(int &a, int &b){
+}
 int main(int argc, char *argv[])
 {
     Based A;
+    int ia = 1, ib = 2;
+    swap(ia, ib);
+    cout<<"ia:"<<ia<<"ib:"<<ib<<endl;
     cout<<"Main:"<<nonConstInt<<endl;
     cout<<"Main a:"<<a<<endl;
     return 0;

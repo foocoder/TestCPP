@@ -15,7 +15,9 @@ class Based{
         Based();
     private:
         int _val;
-} ;
+};
+
+static void swap(int &a, int &b);
 
 static int nonConstInt;
 #endif
