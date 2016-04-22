@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     Base a;
     cout<<"Without Default Constructor: _nVal = "<<n._nVal<<endl;
     Base b( a,1 );
-    //Base b{a};
+    //Base b{a};//如果没有Copy Constructor会自动生成
     return 0;
 }
 
