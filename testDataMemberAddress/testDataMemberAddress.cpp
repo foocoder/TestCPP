@@ -39,7 +39,8 @@ struct Dervied:Base1, Base2{
 int main(int argc, char *argv[])
 {
     Base test, test2;
-    Base1 b1;
+    Base1 b1, b2;
+    b1.val1 = 515;
 
     printf("%p\n", &test);
     printf("%p\n", &test.a);
@@ -54,6 +55,7 @@ int main(int argc, char *argv[])
     printf("%p\n", &Base::c);
     printf("%p\n", &Base::virtFunc);
     printf("\n%p\n", &Base1::val1);
+    printf("%d\n", &b1);
     printf("%p\n", &Base2::val2);
     printf("%p\n", &Dervied::val1);
     printf("%p\n", &Dervied::val2);
