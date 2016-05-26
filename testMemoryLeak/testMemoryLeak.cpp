@@ -35,6 +35,26 @@ class complexStruct{
         int * _ptr_val;
 };
 
+//G++ 将vptr放置在头部
+class A{
+    public:
+        virtual void f(){
+            cout<<"A"<<endl;
+        }
+        int a = 0x11111111;
+};
+class B:public A{
+    public:
+        virtual void f(){
+            cout<<"B"<<endl;
+        }
+        int b = 0x22222222;
+
+};
+class C:public B{
+    int c = 0x33333333;
+};
+
 int main(int argc, char *argv[])
 {
     //int arrInt[100] = {0};
@@ -81,15 +101,18 @@ int main(int argc, char *argv[])
     //malloc_stats();
     //cout<<sizeof(arrPOD) <<endl;
 
-    cout<<"\nBEFORE NEW"<<endl;
-    malloc_stats();
-    complexStruct * ptrComplexStruct = new complexStruct[10];
-    cout<<"\nAFTER NEW"<<endl;
-    malloc_stats();
-    delete ptrComplexStruct; //Memory Leak;
-    cout<<"\nAFTER DELETE"<<endl;
-    malloc_stats();
-    cout<<sizeof(complexStruct) <<endl;
+    //cout<<"\nBEFORE NEW"<<endl;
+    //malloc_stats();
+    //complexStruct * ptrComplexStruct = new complexStruct[10];
+    //cout<<"\nAFTER NEW"<<endl;
+    //malloc_stats();
+    //delete ptrComplexStruct; //Memory Leak;
+    //cout<<"\nAFTER DELETE"<<endl;
+    //malloc_stats();
+    //cout<<sizeof(complexStruct) <<endl;
 
+    A * a = new C;
+    a->f();
+    delete a;
     return 0;
 }
