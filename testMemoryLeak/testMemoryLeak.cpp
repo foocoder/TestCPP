@@ -55,13 +55,6 @@ class C:public B{
     int c = 0x33333333;
 };
 
-class empty{
-    public:
-        ~empty(){ }
-    private:
-        char a;
-};
-
 int main(int argc, char *argv[])
 {
     //int arrInt[100] = {0};
@@ -122,7 +115,6 @@ int main(int argc, char *argv[])
     //a->f();
     //delete a;
 
-    empty * a = new empty[0x21];
-    delete a;
+
     return 0;
 }
