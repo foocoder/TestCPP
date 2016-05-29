@@ -9,11 +9,13 @@
 // ---- Program Info End  ----
 
 #include <stdio.h>
+#include <alloca.h>
 
 int gnArr[1000] = {1,1,1,1};
 int main(int argc, char *argv[])
 {
     int lnArr[1000] = {1,1};
+    int * pnArr = (int *) alloca(sizeof(char) * 1024 * 1024 * 4);
     printf("Hello World\n");
     return 0;
 }
