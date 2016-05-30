@@ -115,6 +115,11 @@ int main(int argc, char *argv[])
     //a->f();
     //delete a;
 
+    int * p = (int *) malloc(sizeof(int));
+    p[-1] = 0;
+    printf("%x", p[-2]);
+    //p[-2] = 0;
+    free(p);
 
     return 0;
 }
