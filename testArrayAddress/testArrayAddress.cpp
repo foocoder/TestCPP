@@ -10,11 +10,16 @@
 
 #include <cstdio>
 
+void func(int (a)[4]){
+    printf("%d \n", sizeof(a));
+}
+
 int main(int argc, char *argv[])
 {
     int a[4] = {1,2,3,4};
     int &b = a[3];
     int * p =(int *)(&b+1);
-    printf("%d",*(p-1));
+    printf("%d\n",*(p-1));
+    func(a);
     return 0;
 }
