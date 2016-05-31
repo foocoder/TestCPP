@@ -60,13 +60,29 @@ int main(int argc, char *argv[])
         }
     }
 
+    //unsigned int  and  signed int
+    unsigned int ui_a_1 = 1;
+    signed int si_a_1 = -1;
+
+    if(si_a_1 == ui_a_1){ //True si_a转换成 unsigned int
+        cout<<"signed int is equal to unsigned int"<<endl;
+    }else{
+        if(si_a_1 < ui_a_1){
+            cout<<"signed int(-1) is smaller than  unsigned int(1)"<<endl;
+        }else if(si_a_1 > ui_a_1){
+            cout<<"signed int(-1) is bigger than to unsigned int(1)"<<endl;
+        }
+    }
+
     // long bit int to short bit int
     unsigned short us_a = 0xFFe0;
     unsigned char uc_aa = us_a; //0xE0
     signed char sc_aa = us_a;//0xE0
     //对于long to short， 无论目标是unsigned 还是signed，编译器都采用高位截断的策略
-    printf("unsigned char (contain unsigned short) is: %d, signed char (contain unsigned short) is: %d", uc_aa, sc_aa);
+    printf("unsigned char (contain unsigned short) is: %d, signed char (contain unsigned short) is: %d\n", uc_aa, sc_aa);
 
+    // parameter conversion
+    printf("sizeof 'a' = %d", sizeof 'A');
 
 
 
