@@ -10,8 +10,10 @@
 
 #include <cstdio>
 
-void func(int (a)[4]){
-    printf("%d \n", sizeof(a));
+void func(int p[4], int (&r)[4]){
+    int np = sizeof(p);
+    int nr = sizeof(r);
+    printf("%d %d\n", np, nr);
 }
 
 int main(int argc, char *argv[])
@@ -20,6 +22,6 @@ int main(int argc, char *argv[])
     int &b = a[3];
     int * p =(int *)(&b+1);
     printf("%d\n",*(p-1));
-    func(a);
+    func(a, a);
     return 0;
 }
