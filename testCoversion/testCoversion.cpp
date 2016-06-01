@@ -74,6 +74,13 @@ int main(int argc, char *argv[])
         }
     }
 
+    if(-1 < (unsigned int) 1){
+        cout<<"-1 < 1"<<endl;
+    }
+    else{
+        cout<<"-1 > 1"<<endl;
+    }
+
     // long bit int to short bit int
     unsigned short us_a = 0xFFe0;
     unsigned char uc_aa = us_a; //0xE0
