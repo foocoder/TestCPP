@@ -27,5 +27,8 @@ int main(int argc, char *argv[])
     //cptrChar[0] = "w"; // Compile Error, Read-Only Area;
     //cptrChar[1] = "O";// Compile Error, Read-Only Area;
 
+    //Test3
+    printf("%d \n",sizeof("\1234")); //3
+    printf("%d \n",sizeof("\x12523"));// 2
     return 0;
 }
