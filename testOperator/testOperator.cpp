@@ -8,14 +8,24 @@
 //CreatedAt:    2016-03-18 10:39:18
 // ---- Program Info End  ----
 
-#include <iostream>
+//#include <iostream>
+#include <stdio.h>
 
-using namespace std;
+//using namespace std;
 
 int main(int argc, char *argv[])
 {
-    char * p = "Linux";
-    cout<<*p++<<endl;
-    cout<<*p<<endl;
+    //const char * p = "Linux";
+    //cout<<*p++<<endl;// Output "L"
+    //cout<<*p<<endl;// Output "i"
+
+    //double d = 0.1;
+    //d++;
+    //cout<<d<<endl;
+
+    int a;
+    float b,c;
+    scanf("%2d%3f%4f",&a, &b, &c);
+    printf("\na=%db=%dc=%f",a,b,c);
     return 0;
 }
