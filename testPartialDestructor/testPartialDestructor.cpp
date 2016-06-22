@@ -48,6 +48,6 @@ int main(int argc, char *argv[])
     Base * b = &d;
     d.getVal();
     b->getVal();
-    delete b;//Runtime Error! Don't know why
+    delete b;//Runtime Error! 部分析构导致free的时候Error
     return 0;
 }
