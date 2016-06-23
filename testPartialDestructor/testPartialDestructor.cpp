@@ -8,6 +8,7 @@
 //CreatedAt:    2016-04-26 15:10:59
 // ---- Program Info End  ----
 
+#include <cstdlib>
 #include <iostream>
 
 using namespace std;
@@ -45,9 +46,10 @@ class Dervied: public Base{
 int main(int argc, char *argv[])
 {
     Dervied d;
-    Base * b = &d;
+    Base * b = new Dervied;
     d.getVal();
     b->getVal();
-    delete b;//Runtime Error! 部分析构导致free的时候Error
+    delete b;//部分析构
+    b->getVal();
     return 0;
 }
