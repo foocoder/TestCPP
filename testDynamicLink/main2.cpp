@@ -44,7 +44,33 @@ int main(int argc, char *argv[])
 
     print(fun(a,b));
     print(fun1(a,b));
+
+    if(dlclose(handle)<0){
+         printf("%s\n",dlerror());
+         return -1;
+    }
+
     scanf("%d %d", &a, &b);
+
+    //Second Load
+    handle = dlopen("./libcalc.so", RTLD_LAZY);
+    if( !handle ){
+        printf("%s\n", dlerror());
+        return -1;
+    }
+
+    fun = (int (*)(int,int))dlsym(handle, "fun");
+    if( (error=dlerror()) != NULL ){
+        printf("%s\n", error);
+        return -1;
+    }
+
+    fun1 = (int (*)(int, int))dlsym(handle, "fun1");
+    if( (error=dlerror()) != NULL ){
+        printf("%s\n", error);
+        return -1;
+    }
+
     print(fun(a,b));
     print(fun1(a,b));
 
@@ -52,5 +78,6 @@ int main(int argc, char *argv[])
          printf("%s\n",dlerror());
          return -1;
     }
+
     return 0;
 }
