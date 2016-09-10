@@ -18,13 +18,15 @@ class Elem{
         int _val;
     public:
         Elem(int val):_val(val){
-            cout<<"Constructor Invoked"<<endl;
+            cout<<_val<<"Constructor Invoked"<<endl;
         }
         Elem():_val(0){}
         Elem( const Elem & rhs ):_val(rhs._val){
-            cout<<"Copy Constructor Invoked!"<<endl;
+            cout<<_val<<"Copy Constructor Invoked!"<<endl;
         };
-        ~Elem(){}
+        ~Elem(){
+            cout<<_val<<"Destructor Invoked!"<<endl;
+        }
 };
 int main(int argc, char *argv[])
 {
@@ -32,10 +34,13 @@ int main(int argc, char *argv[])
     vector<Elem> vec0,vec1;
     vec0.reserve( 5 );
     for( int i=0; i<5; i++ ){
-        Elem tmp(i);
-        vec0.push_back(tmp);
+        //Elem tmp(i);
+        vec0.push_back(i);
     }
     cout<<"Copy Vector"<<endl;
-    vec1 = vec0;
+    for( const auto &i:vec0 ){
+
+    }
+    cout<<"Main End"<<endl;
     return 0;
 }
