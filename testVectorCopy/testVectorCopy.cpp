@@ -27,19 +27,24 @@ class Elem{
         ~Elem(){
             cout<<_val<<"Destructor Invoked!"<<endl;
         }
+        int get() const{
+            return _val;
+        }
 };
 int main(int argc, char *argv[])
 {
 
-    vector<Elem> vec0,vec1;
-    vec0.reserve( 5 );
+    vector<Elem> vec0(5),vec1;
+    //vec0.reserve( 5 );
     for( int i=0; i<5; i++ ){
         //Elem tmp(i);
-        vec0.push_back(i);
+        //vec0.push_back((i));
+        //vec0.push_back(std::move(Elem(i)));
+        vec0[i] = std::move(Elem(i));
     }
     cout<<"Copy Vector"<<endl;
     for( const auto &i:vec0 ){
-
+        i.get();
     }
     cout<<"Main End"<<endl;
     return 0;
