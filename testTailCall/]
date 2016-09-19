@@ -1,0 +1,39 @@
+// ---- Program Info Start----
+//FileName:     testTailCall.cpp
+//
+//Author:       Fuchen Duan
+//
+//Email:        slow295185031@gmail.com
+//
+//CreatedAt:    2016-09-18 10:13:33
+// ---- Program Info End  ----
+
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+int nonTailFactorial( int n ){
+    if(n==1) return 1;
+    return n*nonTailFactorial(n-1);
+}
+
+int tailFactorial( int n, int total ){
+    if( n==1  ) return total;
+    return tailFactorial(n-1, n*total);
+}
+
+int main(int argc, char *argv[])
+{
+    clock_t start, end;
+    start = clock();
+    int rs = nonTailFactorial(50);
+    end = clock();
+    cout<<"rs = "<<rs<<" time = "<<(double)(end-start) / CLOCKS_PER_SEC<<endl;
+
+    start = clock();
+    rs = tailFactorial(50,1);
+    end = clock();
+    cout<<"rs = "<<rs<<" time = "<<(double)(end-start) / CLOCKS_PER_SEC<<endl;
+    return 0;
+}
