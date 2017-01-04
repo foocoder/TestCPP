@@ -102,6 +102,8 @@ class myBitSet{
         //flip();
     size_t
         count();
+    size_t
+        normal_count();
 
     //override
     myBitSet
