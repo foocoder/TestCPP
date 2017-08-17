@@ -118,6 +118,18 @@ size_t myBitSet::count()
     return _result;
 }
 
+size_t myBitSet::normal_count()
+{
+    size_t _result = 0;
+    for(size_t i=0; i<_M_RealLength; i++){
+        _WordT n = _M_w[i];
+        while( n ){
+            _result += n & 1;
+            n >>= 1;
+        }
+    }
+    return _result;
+}
 myBitSet &
 myBitSet::operator&=(const myBitSet& rhs)
 {
@@ -179,10 +191,10 @@ myBitSet::operator[](size_t _pos)
 
 int main(int argc, char *argv[])
 {
-    const size_t n = 2000000;
+    const size_t n = 20000000;
     long start = clock();
-    bitset<n+1> b;
-    //myBitSet b(n+1);
+    //bitset<n+1> b;
+    myBitSet b(n+1);
     int count = 0;
     int i;
     for(i=2; i<=n; i++)
@@ -211,6 +223,7 @@ int main(int argc, char *argv[])
         i++;
     }
     long end = clock();
+    cout<<b.count()<<"\t"<<b.normal_count()<<endl;
     cout<<count<<" primes"<<endl;
     cout<<(end-start)*1000/CLOCKS_PER_SEC<<endl;
 
